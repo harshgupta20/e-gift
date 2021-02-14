@@ -17,6 +17,10 @@ body {
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 .parent {
   overflow-y: scroll;
   height: 100vh;
@@ -36,6 +40,7 @@ body {
 /* NavBar */
 .hero-page {
   height: 100vh;
+  overflow-x: hidden;
   background: linear-gradient(135deg, #1f2f42 50%, #172331 50%, #172331 65%, #111d27 65%, #111d27 80%, #7ba13e 80%, #7ba13e 100%);
 }
 
@@ -54,6 +59,10 @@ header {
           justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-animation: translate 1s ease-in-out .8s forwards;
+          animation: translate 1s ease-in-out .8s forwards;
 }
 
 ul {
@@ -186,6 +195,14 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.hero-content .content {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
+  -webkit-animation: translate 1s ease-in-out forwards;
+          animation: translate 1s ease-in-out forwards;
 }
 
 .hero-content .content,
@@ -325,6 +342,10 @@ header nav {
 
 /* social links */
 .social {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-animation: translate 1s ease-in-out forwards;
+          animation: translate 1s ease-in-out forwards;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -341,6 +362,7 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -355,6 +377,23 @@ header nav {
   padding: 2rem 1rem 0 0;
 }
 
+/*intro animation*/
+@-webkit-keyframes translate {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes translate {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+/* Category section */
 .categories {
   position: relative;
   min-height: 100vh;
@@ -373,10 +412,16 @@ header nav {
   width: 90%;
   margin: auto;
   font-size: 2rem;
+}
+
+.heading span {
   color: #7ba13e;
 }
 
 .categories-cards {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  cursor: pointer;
   width: 90%;
   margin: auto;
   display: -ms-grid;
@@ -392,7 +437,11 @@ header nav {
   width: 90%;
   height: 15rem;
   background-position: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   background-size: cover;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
           box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
@@ -400,6 +449,15 @@ header nav {
 
 .items::after {
   content: "text";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
   position: absolute;
   bottom: 0;
@@ -409,15 +467,166 @@ header nav {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/*Moving ball*/
-.ball {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #f1eeee;
-  top: 0;
-  left: 0;
-  z-index: 2;
+.items:nth-child(1)::after {
+  content: "Gifts";
+}
+
+.items:nth-child(2)::after {
+  content: "Chocolates";
+}
+
+.items:nth-child(3)::after {
+  content: "Cakes";
+}
+
+.items:nth-child(4)::after {
+  content: "Flowers";
+}
+
+.items:nth-child(5)::after {
+  content: "Cakes and Flowers";
+}
+
+.items:nth-child(6)::after {
+  content: "Cushions";
+}
+
+.items:nth-child(7)::after {
+  content: "Cards";
+}
+
+.items:nth-child(8)::after {
+  content: "Bottle messages";
+}
+
+.last {
+  min-height: 100vh;
+  background: linear-gradient(-135deg, #7ba13e 53%, #444a55 53%);
+}
+
+.last-heading {
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 90%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.last-heading h1 {
+  color: #444a55;
+  font-size: 2rem;
+}
+
+.latest-cards {
+  margin: 0 1rem;
+  min-height: 80vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(350px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 2rem;
+}
+
+.card-corusel {
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+}
+
+.card-corusel img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.card-corusel:nth-child(1):hover img,
+.card-corusel:nth-child(6):hover img {
+  -webkit-transform: translateY(-100%) scale(1.2);
+          transform: translateY(-100%) scale(1.2);
+}
+
+.card-corusel:nth-child(2):hover img,
+.card-corusel:nth-child(4):hover img {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotateY(180deg) scale(1.2);
+          transform: rotateY(180deg) scale(1.2);
+}
+
+.description-footer {
+  font-family: "Poppins";
+  height: 100vh;
+  background: linear-gradient(135deg, #7ba13e 47%, #444a55 47%);
+}
+
+.description {
+  width: 90%;
+  margin: auto;
+  padding-top: 2rem;
+  height: 80vh;
+}
+
+.description h1,
+.description p {
+  color: white;
+}
+
+.description h1 {
+  font-size: 72px;
+  text-align: center;
+}
+
+.description h1 + p {
+  text-align: center;
+  padding: 1rem 0 3rem 0;
+}
+
+footer {
+  height: 20vh;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer h1 {
+  text-transform: lowercase !important;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer h1 i {
+  cursor: pointer;
+  padding: 0 1rem;
 }
 /*# sourceMappingURL=style.css.map */
