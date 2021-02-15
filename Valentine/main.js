@@ -20,8 +20,10 @@ var content_sub = document.querySelector(".content-subheading");
 var text = "Valentine's";
 
 for (let i = 0; i < text.length; i++) {
+  var time = (i * (Math.random() + 0.8)) / text.length;
   var z = document.createElement("span");
   z.classList.add("rubber");
+  z.style.animationDelay = time + "s";
   z.innerText = text[i];
   content.append(z);
 }
@@ -29,8 +31,12 @@ for (let i = 0; i < text.length; i++) {
 var text1 = "Gift";
 
 for (let i = 0; i < text1.length; i++) {
+  var time = (i * (Math.random() + 1)) / text.length;
+
   var zz = document.createElement("span");
   zz.classList.add("rubber");
+  zz.style.animationDelay = time + "s";
+
   zz.innerText = text1[i];
   content_sub.append(zz);
 }

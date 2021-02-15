@@ -63,8 +63,24 @@ header {
           justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-animation: translate 1s ease-in-out 0.8s forwards;
-          animation: translate 1s ease-in-out 0.8s forwards;
+  -webkit-animation: translate 1s ease-in-out 2.8s forwards;
+          animation: translate 1s ease-in-out 2.8s forwards;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+@-webkit-keyframes translate {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes translate {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 
 ul {
@@ -208,6 +224,24 @@ header nav {
   display: inline-block;
   text-transform: none !important;
   letter-spacing: 5px;
+  -webkit-animation: slide 2s ease-in-out forwards;
+          animation: slide 2s ease-in-out forwards;
+  -webkit-transform: translateX(70rem);
+          transform: translateX(70rem);
+}
+
+@-webkit-keyframes slide {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }
 
 .rubber-band {
