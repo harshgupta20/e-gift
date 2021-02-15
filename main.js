@@ -40,11 +40,11 @@ var card_items = document.querySelectorAll(".items");
 
 card_items.forEach((item) => {
   item.style.backgroundImage = `url("https://cdn.pixabay.com/photo/2020/09/02/20/52/dock-5539524_960_720.jpg")`;
-//   item.addEventListener("mousemove", () => {
-//       item.style.transform = "scale(1.2) rotateY(180deg)";
-//   });
-//   item.addEventListener("mouseout", () => {
-//       item.style.transform = "rotateY(0)";
-//   });
 });
+
+
+
+
+
+
 
