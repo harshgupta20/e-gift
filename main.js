@@ -42,9 +42,25 @@ card_items.forEach((item) => {
   item.style.backgroundImage = `url("https://cdn.pixabay.com/photo/2020/09/02/20/52/dock-5539524_960_720.jpg")`;
 });
 
+// burger
 
+var burger = document.querySelector(".burger");
+var social = document.querySelector(".social-links");
+var burgerItems = document.querySelector(".burger-items");
 
+var isopen = Boolean(true);
 
+burger.addEventListener("click", () => {
+  if (isopen) {
+    burgerItems.style.transform = "translateX(0)";
+    isopen = false;
+    social.style.opacity = 0;
+    
+  }
+  else { 
+    burgerItems.style.transform = "translateX(100%)";
+    isopen = true;
+    social.style.opacity = 1;
 
-
-
+  }
+});

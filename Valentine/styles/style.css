@@ -38,8 +38,16 @@ a {
   scroll-snap-align: start;
 }
 
+@media only screen and (max-width: 850px) {
+  .parent {
+    -ms-scroll-snap-type: none;
+        scroll-snap-type: none;
+  }
+}
+
 /*header*/
 main {
+  overflow: hidden;
   background: linear-gradient(135deg, #1f2f42 50%, #172331 50%, #172331 65%, #111d27 65%, #111d27 80%, #7ba13e 80%, #7ba13e 100%);
 }
 
@@ -63,8 +71,8 @@ header {
           justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-animation: translate 1s ease-in-out 2.8s forwards;
-          animation: translate 1s ease-in-out 2.8s forwards;
+  -webkit-animation: translate 1s ease-in-out 0.8s forwards;
+          animation: translate 1s ease-in-out 0.8s forwards;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
@@ -83,7 +91,7 @@ header {
   }
 }
 
-ul {
+nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,56 +104,13 @@ ul {
   cursor: pointer;
 }
 
-ul :nth-child(2) {
+nav ul :nth-child(2) {
   color: #7ba13e;
 }
 
-ul li {
+nav ul li {
   cursor: pointer;
   margin: 0 1rem;
-}
-
-.burger {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-  text-align: right;
-  margin-right: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.burger div {
-  height: 2px;
-  width: 1rem;
-  background-color: #7ba13e;
-  position: relative;
-}
-
-.burger ::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: 1rem;
-  background-color: #7ba13e;
-  margin-top: 0.3rem;
-}
-
-.burger ::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: 1rem;
-  background-color: #7ba13e;
-  margin-top: 0.6rem;
 }
 
 header nav {
@@ -158,6 +123,7 @@ header nav {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 10rem;
           flex: 1 1 10rem;
+  text-align: center;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -215,7 +181,7 @@ header nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-size: 8rem;
+  font-size: 5rem;
 }
 
 .content span {
@@ -224,24 +190,10 @@ header nav {
   display: inline-block;
   text-transform: none !important;
   letter-spacing: 5px;
-  -webkit-animation: slide 2s ease-in-out forwards;
-          animation: slide 2s ease-in-out forwards;
-  -webkit-transform: translateX(70rem);
-          transform: translateX(70rem);
 }
 
-@-webkit-keyframes slide {
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes slide {
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
+.rubber {
+  display: block;
 }
 
 .rubber-band {
@@ -304,6 +256,75 @@ header nav {
   }
 }
 
+.burger-items {
+  display: none;
+}
+
+@media only screen and (max-width: 653px) {
+  .content {
+    font-size: 3rem;
+  }
+  header {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #logo {
+    font-size: 2rem;
+    margin-left: 1rem;
+    text-align: left;
+  }
+  .burger {
+    cursor: pointer;
+    height: 50%;
+    width: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .burger span {
+    width: 20px;
+    height: 3px;
+    background: #7ba13e;
+    margin: 0.1rem 0;
+  }
+  nav {
+    display: none;
+  }
+  .burger-items {
+    z-index: 3;
+    -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 5rem 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    text-align: right;
+    top: 10%;
+    right: 0;
+    opacity: 0;
+  }
+  .burger-items ul li {
+    margin: 1rem 0.5rem;
+  }
+}
+
 .options {
   height: 100vh;
   display: -webkit-box;
@@ -345,7 +366,8 @@ header nav {
 
 /* Days */
 .days {
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
 
 .days h1 {
@@ -364,7 +386,8 @@ header nav {
 }
 
 .days-option {
-  height: 90vh;
+  min-height: 90vh;
+  height: auto;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
@@ -373,12 +396,12 @@ header nav {
 }
 
 .days-option div {
-  width: 80%;
+  width: 60%;
   margin: auto;
   background: url("https://cdn.pixabay.com/photo/2021/01/27/08/42/valentine-5954177_960_720.jpg");
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 20vh;
   position: relative;
   background-attachment: fixed;
   cursor: pointer;
@@ -391,18 +414,21 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #474747;
+  color: #1d1d1d;
   font-size: 2rem;
   font-weight: 600;
 }
 
 /* description */
 .valentine-description {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 .valentine-description .top {
-  height: 80vh;
+  min-height: 80vh;
+  padding-top: 4rem;
+  height: auto;
   width: 90%;
   margin: auto;
 }
@@ -417,7 +443,7 @@ header nav {
 }
 
 .valentine-description .top h2 {
-  padding: 1rem 0 5rem 0;
+  padding: 1rem 0 3rem 0;
 }
 
 .valentine-description .top p {
@@ -460,5 +486,11 @@ header nav {
 .valentine-description .bottom h1 i {
   cursor: pointer;
   padding: 0 1rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .bottom h1 {
+    font-size: 1.2rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

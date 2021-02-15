@@ -20,10 +20,8 @@ var content_sub = document.querySelector(".content-subheading");
 var text = "Valentine's";
 
 for (let i = 0; i < text.length; i++) {
-  var time = (i * (Math.random() + 0.8)) / text.length;
   var z = document.createElement("span");
   z.classList.add("rubber");
-  z.style.animationDelay = time + "s";
   z.innerText = text[i];
   content.append(z);
 }
@@ -31,12 +29,8 @@ for (let i = 0; i < text.length; i++) {
 var text1 = "Gift";
 
 for (let i = 0; i < text1.length; i++) {
-  var time = (i * (Math.random() + 1)) / text.length;
-
   var zz = document.createElement("span");
   zz.classList.add("rubber");
-  zz.style.animationDelay = time + "s";
-
   zz.innerText = text1[i];
   content_sub.append(zz);
 }
@@ -45,11 +39,27 @@ for (let i = 0; i < text1.length; i++) {
 
 var rubber = document.querySelectorAll(".rubber");
 
-rubber.forEach((item) =>
+rubber.forEach((item) => {
   item.addEventListener("mouseover", () => {
     item.classList.add("rubber-band");
     item.addEventListener("animationend", () => {
       item.classList.remove("rubber-band");
     });
-  })
-);
+  });
+});
+
+// burger
+var burger = document.querySelector(".burger");
+var burgerItems = document.querySelector(".burger-items");
+
+var isopen = Boolean(true);
+
+burger.addEventListener("click", () => {
+  if (isopen) {
+    burgerItems.style.opacity = 1;
+    isopen = false;
+  } else {
+    burgerItems.style.opacity=0;
+    isopen = true;
+  }
+});
